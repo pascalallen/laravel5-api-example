@@ -14,7 +14,7 @@
             <div class="image-container">
                 <img src="{{ asset('img/bnb.jpg') }}" class="image rounded-circle image-fluid">
                 <div class="text-container">
-                    <a class="lead underline-hover image-text" href="#">Relax</a>
+                    <a class="lead underline-hover image-text" href="/properties">Relax</a>
                 </div>
             </div>
         </div>
@@ -22,7 +22,7 @@
             <div class="image-container">
                 <img src="{{ asset('img/bnb2.jpg') }}" class="image rounded-circle image-fluid">
                 <div class="text-container">
-                    <a class="lead underline-hover image-text" href="#">Serenity</a>
+                    <a class="lead underline-hover image-text" href="/properties">Serenity</a>
                 </div>
             </div>
         </div>
@@ -30,7 +30,7 @@
             <div class="image-container">
                 <img src="{{ asset('img/bnb3.jpeg') }}" class="image rounded-circle image-fluid">
                 <div class="text-container">
-                    <a class="lead underline-hover image-text" href="#">Unwind</a>
+                    <a class="lead underline-hover image-text" href="/properties">Unwind</a>
                 </div>
             </div>
         </div>
