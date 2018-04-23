@@ -21,10 +21,11 @@ Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout');
 Route::post('register', 'Auth\RegisterController@register');
 
-Route::group(['middleware' => 'auth:api'], function() {
+// Route::group(['middleware' => 'auth:api'], function() {
     Route::get('properties', 'PropertyController@index');
     Route::get('properties/{property}', 'PropertyController@show');
     Route::post('properties', 'PropertyController@store');
+    Route::post('properties/find', 'PropertyController@findByDate');
     Route::put('properties/{property}', 'PropertyController@update');
     Route::delete('properties/{property}', 'PropertyController@delete');
-});
+// });
