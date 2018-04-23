@@ -42,7 +42,7 @@ class PropertyController extends Controller
     {
         $from = $request->input('from');
         $to = $request->input('to');
-        $properties = Property::whereRaw("? NOT BETWEEN start_date AND end_date", [$from])->get();
+        $properties = Property::whereRaw("? NOT BETWEEN start_date AND end_date", [$from, $to])->get();
         return $properties;
     }
 }

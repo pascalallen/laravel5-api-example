@@ -60,16 +60,39 @@
 						var date2 = new Date(end.format('MM/DD/YYYY'));
 						var timeDiff = Math.abs(date2.getTime() - date1.getTime());
 						var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+						$(".properties-container").empty();
 						$("#availability-check").empty();
 						if (result.length > 0) {
 							$("#availability-check").append('<div class="alert alert-info" role="alert"><strong>Between '+start.format('MM/DD/YYYY')+' and '+end.format('MM/DD/YYYY')+' some properties will be available for '+diffDays+' days.</strong></div>');
 						    for (var i = 0; i < result.length; i++) { 
+								var daysOpen;
+								if (result[i].start_date > start.format('MM/DD/YYYY')) {
+									var date1 = new Date(start.format('MM/DD/YYYY'));
+									var date2 = new Date(result[i].start_date);
+									var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+									daysOpen = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+									var daysBefore = "<p>"+daysOpen+" days open from "+start.format('MM/DD/YYYY')+" and "+result[i].start_date+"</p>";
+									
+								}else{
+									var daysBefore = "";
+								}
+								if (end.format('MM/DD/YYYY') > result[i].end_date) {
+									var date1 = new Date(result[i].end_date);
+									var date2 = new Date(end.format('MM/DD/YYYY'));
+									var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+									daysOpen = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+									var daysAfter = "<p>"+daysOpen+" days open from "+result[i].end_date+" and "+end.format('MM/DD/YYYY')+"</p>";
+								}else{
+									var daysAfter = "";
+								}
 							    $(".properties-container").append(
 								"<div class=\"card\" style=\"width: 18rem; margin:25px;\">"+
 									"<img class=\"card-img-top\" src=\""+result[i].image+"\" alt=\"Card image cap\">"+
 									"<div class=\"card-body\">"+
 										"<h5 class=\"card-title\">"+result[i].name+"</h5>"+
 										"<p class=\"card-text\">"+result[i].description+"</p><hr>"+
+										daysBefore+
+										daysAfter+
 										"<strong class=\"card-text\">"+result[i].address+" "+result[i].city+" "+result[i].state+" "+result[i].zipcode+"</strong>"+
 										"<br><br><button type=\"button\" class=\"btn btn-primary\" onclick=\"book('"+start.format('YYYY-MM-DD')+"', '"+end.format('YYYY-MM-DD')+"', '"+result[i].id+"')\">Book me!</button>"+
 									"</div>"+
