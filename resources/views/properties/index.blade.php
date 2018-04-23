@@ -66,22 +66,22 @@
 							$("#availability-check").append('<div class="alert alert-info" role="alert"><strong>Between '+start.format('MM/DD/YYYY')+' and '+end.format('MM/DD/YYYY')+' some properties will be available for '+diffDays+' days.</strong></div>');
 						    for (var i = 0; i < result.length; i++) { 
 								var daysOpen;
-								if (result[i].start_date > start.format('MM/DD/YYYY')) {
-									var date1 = new Date(start.format('MM/DD/YYYY'));
+								if (result[i].start_date > start.format('YYYY-MM-DD')) {
+									var date1 = new Date(start.format('YYYY-MM-DD'));
 									var date2 = new Date(result[i].start_date);
 									var timeDiff = Math.abs(date2.getTime() - date1.getTime());
 									daysOpen = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
-									var daysBefore = "<p>"+daysOpen+" days open from "+start.format('MM/DD/YYYY')+" and "+result[i].start_date+"</p>";
+									var daysBefore = "<p>"+daysOpen+" days open from "+start.format('YYYY-MM-DD')+" and "+result[i].start_date+"</p>";
 									
 								}else{
 									var daysBefore = "";
 								}
-								if (end.format('MM/DD/YYYY') > result[i].end_date) {
+								if (end.format('YYYY-MM-DD') > result[i].end_date) {
 									var date1 = new Date(result[i].end_date);
-									var date2 = new Date(end.format('MM/DD/YYYY'));
+									var date2 = new Date(end.format('YYYY-MM-DD'));
 									var timeDiff = Math.abs(date2.getTime() - date1.getTime());
 									daysOpen = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
-									var daysAfter = "<p>"+daysOpen+" days open from "+result[i].end_date+" and "+end.format('MM/DD/YYYY')+"</p>";
+									var daysAfter = "<p>"+daysOpen+" days open from "+result[i].end_date+" and "+end.format('YYYY-MM-DD')+"</p>";
 								}else{
 									var daysAfter = "";
 								}
