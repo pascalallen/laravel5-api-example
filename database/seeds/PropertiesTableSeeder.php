@@ -28,8 +28,6 @@ class PropertiesTableSeeder extends Seeder
                 'city' => $faker->city,
                 'state' => $faker->state,
                 'zipcode' => Address::postcode(),
-                'start_date' => $starts_at,
-                'end_date' => $ends_at,
                 'image' => $faker->imageUrl($width = 640, $height = 480),
                 'description' => $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
             ]);

@@ -20,8 +20,6 @@ class CreatePropertiesTable extends Migration
             $table->string('city');
             $table->string('state');
             $table->integer('zipcode');
-            $table->dateTime('start_date');
-            $table->dateTime('end_date');
             $table->timestamps();
         });
     }

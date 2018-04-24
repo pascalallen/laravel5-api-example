@@ -37,12 +37,8 @@ class PropertyController extends Controller
 
         return response()->json(null, 204);
     }
-
-    public function findByDate(Request $request)
+    public function findMultiple(Request $request)
     {
-        $from = $request->input('from');
-        $to = $request->input('to');
-        $properties = Property::whereRaw("? NOT BETWEEN start_date AND end_date", [$from, $to])->get();
-        return $properties;
+        return Property::find($request->input('ids'));
     }
 }
